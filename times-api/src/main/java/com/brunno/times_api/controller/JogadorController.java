@@ -38,6 +38,12 @@ public class JogadorController {
         return ResponseEntity.status(HttpStatus.OK).body(jogadorService.listarJogador(pageable));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Jogador> buscarJogador(@PathVariable("id") Long id) {
+        Jogador jogador = jogadorService.buscarJogadorPeloId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(jogador);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarJogador(@PathVariable("id") Long id) {
         Jogador jogador = jogadorService.buscarJogadorPeloId(id);
@@ -53,7 +59,7 @@ public class JogadorController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Jogador> atualizarJogador(@PathVariable("id") Long id,
-            @Valid @RequestBody Jogador dadosJogador) {
+                                                    @Valid @RequestBody Jogador dadosJogador) {
         Jogador jogadorAtualizado = jogadorService.buscarJogadorPeloId(id);
 
         if (Objects.isNull(jogadorAtualizado)) {
