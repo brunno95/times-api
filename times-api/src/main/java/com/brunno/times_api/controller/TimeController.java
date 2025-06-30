@@ -58,15 +58,17 @@ public class TimeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Time> atualizarTime (@PathVariable("id") long id, @Valid @RequestBody Time dadosTime) {
-        Time timeAtualizado = timeService.buscarTimePeloId(id);
+    public ResponseEntity<Time> atualizarTime (@PathVariable("id") long id,
+                                                @Valid @RequestBody Time dadosTime) {
+        Time timeExistente = timeService.buscarTimePeloId(id);
 
-        if (Objects.isNull(timeAtualizado)) {
+        if (Objects.isNull(timeExistente)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
             
         }
 
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(timeService.atualizarTime(id, dadosTime));
+        Time timeAtualizado = timeService.atualizarTime(id, dadosTime);
+        return ResponseEntity.ok(timeAtualizado);
     }
     
 }

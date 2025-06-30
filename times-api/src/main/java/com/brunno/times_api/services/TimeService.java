@@ -29,13 +29,13 @@ public class TimeService {
     public Time atualizarTime (Long id, Time dadosTime) {
         Time timeExistente = buscarTimePeloId(id);
 
-        timeExistente.setNome(timeExistente.getNome());
-        timeExistente.setPais(timeExistente.getPais());
-        timeExistente.setEstadio(timeExistente.getEstadio());
-        timeExistente.setTitulos(timeExistente.getTitulos());
-        timeExistente.setTecnico(timeExistente.getTecnico());
-        timeExistente.setFundacao(timeExistente.getFundacao());
-        timeExistente.setMascote(timeExistente.getMascote());
+        timeExistente.setNome(dadosTime.getNome());
+        timeExistente.setPais(dadosTime.getPais());
+        timeExistente.setEstadio(dadosTime.getEstadio());
+        timeExistente.setTitulos(dadosTime.getTitulos());
+        timeExistente.setTecnico(dadosTime.getTecnico());
+        timeExistente.setFundacao(dadosTime.getFundacao());
+        timeExistente.setMascote(dadosTime.getMascote());
 
         return timeRepository.save(timeExistente);
     }
