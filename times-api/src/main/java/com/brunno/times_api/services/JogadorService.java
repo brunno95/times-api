@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import com.brunno.times_api.model.Jogador;
 import com.brunno.times_api.repository.JogadorRepository;
 
-import jakarta.persistence.EntityNotFoundException;
-
 @Service
 public class JogadorService {
 
@@ -25,8 +23,7 @@ public class JogadorService {
     }
 
     public Jogador buscarJogadorPeloId(Long id) {
-        return jogadorRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Jogador não encontrado com ID: " + id));
+        return jogadorRepository.findById(id).orElse(null);
 
     }
 
