@@ -16,16 +16,18 @@ Aplicação backend desenvolvida em Java com o framework Spring Boot. O projeto 
 ## 📁 Estrutura do Projeto
 
 O projeto segue a arquitetura em camadas:
+
 📦 src
-┣ 📂controller
-┣ 📂service
-┣ 📂repository
-┣ 📂model
+
 ┗ 📜 application.properties
 
----
+┣ 📂model
 
-```markdown
+┣ 📂repository
+
+┣ 📂service
+
+┣ 📂controller
 
 ## ▶️ Como Executar o Projeto
 
@@ -38,6 +40,8 @@ O projeto segue a arquitetura em camadas:
 ### Passos
 
 1. Clone o repositório:
+
+```markdown
    ```bash
    git clone https://github.com/seu-usuario/seu-repositorio.git
 ````
